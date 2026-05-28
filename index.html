@@ -498,6 +498,78 @@ section{position:relative}
   margin:0;
 }
 
+/* Notes from the feed */
+.notes-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  max-width:1080px;
+  margin:0 auto;
+}
+.note{
+  background:#fff;
+  border:1px solid var(--line-soft);
+  border-radius:22px;
+  padding:32px 30px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.section.alt .note{background:#fff}
+.note:hover{
+  border-color:var(--line);
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px -18px rgba(0,0,0,.1);
+}
+.note:hover .note-cta .arr{transform:translateX(4px)}
+.note-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.note-tag{
+  font-size:12px;
+  font-weight:600;
+  color:var(--blue);
+  background:var(--blue-tint);
+  padding:5px 12px;
+  border-radius:980px;
+  letter-spacing:-0.005em;
+}
+.note-date{
+  font-size:12px;
+  font-weight:500;
+  color:var(--gray-2);
+}
+.note h3{
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:-0.022em;
+  line-height:1.22;
+  margin:4px 0 2px;
+  color:var(--ink);
+}
+.note p{
+  font-size:15px;
+  line-height:1.55;
+  color:var(--gray-1);
+  margin:0;
+  letter-spacing:-0.005em;
+}
+.note-cta{
+  font-size:14px;
+  font-weight:500;
+  color:var(--blue);
+  margin-top:10px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.note-cta .arr{transition:transform .2s ease;display:inline-block}
+
 /* Writing / Featured articles */
 .writing-list{
   display:flex;
@@ -556,6 +628,134 @@ section{position:relative}
   text-align:right;
   padding-top:2px;
 }
+
+/* Research / Publications */
+.research-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  max-width:920px;
+  margin:0 auto 56px;
+  background:#fff;
+  border:1px solid var(--line-soft);
+  border-radius:20px;
+  overflow:hidden;
+}
+.section.alt .research-stats{background:#fff}
+.rs-item{
+  text-align:center;
+  padding:28px 16px;
+  border-right:1px solid var(--line-soft);
+}
+.rs-item:last-child{border-right:none}
+.rs-num{
+  font-size:clamp(28px,3.4vw,40px);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  color:var(--ink);
+  line-height:1;
+  margin-bottom:8px;
+}
+.rs-num .rs-sub{font-size:.6em;color:var(--gray-2);font-weight:500}
+.rs-lbl{
+  font-size:12px;
+  font-weight:500;
+  color:var(--gray-1);
+  letter-spacing:-0.005em;
+}
+
+.papers-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  max-width:920px;
+  margin:0 auto;
+}
+.paper{
+  background:#fff;
+  border:1px solid var(--line-soft);
+  border-radius:18px;
+  padding:28px 32px;
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  position:relative;
+}
+.section.alt .paper{background:#fff}
+.paper:hover{
+  border-color:var(--line);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,.08);
+}
+.paper.featured{
+  border-color:var(--blue);
+  box-shadow:0 0 0 1px var(--blue) inset, 0 12px 32px -16px rgba(0,113,227,.18);
+}
+.paper.featured::before{
+  content:"Highlighted";
+  position:absolute;
+  top:-10px;left:24px;
+  background:var(--blue);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  padding:4px 10px;
+  border-radius:980px;
+  letter-spacing:.02em;
+}
+.paper-meta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+.paper-year{
+  font-size:12px;
+  font-weight:600;
+  color:var(--gray-1);
+  background:var(--bg-soft);
+  padding:4px 10px;
+  border-radius:980px;
+  letter-spacing:.02em;
+}
+.paper-cites{
+  font-size:13px;
+  color:var(--gray-1);
+}
+.paper-cites strong{color:var(--ink);font-weight:600}
+.paper-tag{
+  font-size:11px;
+  font-weight:600;
+  color:var(--blue);
+  background:var(--blue-tint);
+  padding:4px 10px;
+  border-radius:980px;
+  letter-spacing:.02em;
+}
+.paper-title{
+  font-size:19px;
+  font-weight:600;
+  letter-spacing:-0.018em;
+  line-height:1.32;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.paper-authors{
+  font-size:14px;
+  color:var(--gray-1);
+  line-height:1.5;
+  margin:0 0 4px;
+}
+.paper-authors .me{
+  font-weight:600;
+  color:var(--ink);
+}
+.paper-venue{
+  font-size:13px;
+  color:var(--gray-2);
+  margin:0;
+  font-style:normal;
+}
+.paper-venue em{font-style:italic;color:var(--gray-1)}
 
 /* Quote pull */
 .quote-section{
@@ -769,6 +969,19 @@ section{position:relative}
 }
 .section.alt .chip{background:#fff}
 .chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip-cert{
+  background:var(--blue-tint);
+  color:var(--blue);
+  border-color:transparent;
+  font-weight:600;
+}
+.section.alt .chip-cert{background:var(--blue-tint)}
+.chip-cert::before{
+  content:"\2713";
+  margin-right:8px;
+  font-weight:700;
+  display:inline-block;
+}
 
 /* Buttons */
 .btn{
@@ -1015,25 +1228,82 @@ section{position:relative}
     <div class="thesis-grid" style="background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--line-soft)">
       <article class="thesis reveal">
         <span class="num">Thesis 01</span>
-        <h3>Borders are no longer physical.</h3>
-        <p>A single deepfake, identity spoof, or compromised API can erode national trust faster than any conventional attack. The frontier of security is digital, and it moves at machine speed.</p>
+        <h3>Governance is the new architecture.</h3>
+        <p>When an agent acts, you can no longer say &ldquo;the system did it.&rdquo; Delegated authority, scoped permissions, and full traceability become design decisions, not after&#8209;the&#8209;fact controls.</p>
       </article>
       <article class="thesis reveal d1">
         <span class="num">Thesis 02</span>
-        <h3>Efficiency is not enough. Systems must learn.</h3>
-        <p>Intelligent infrastructure detects, learns, and recalibrates continuously. In the age of AI, continuous improvement is not a strategy. It is the only viable posture.</p>
+        <h3>Companies don&rsquo;t need AI. They need governed AI.</h3>
+        <p>Without governance, automation becomes chaos, speed becomes risk, and intelligence becomes a liability. The architect&rsquo;s job: give agents enough power to be useful, and enough control to be trusted.</p>
       </article>
       <article class="thesis reveal d2">
         <span class="num">Thesis 03</span>
-        <h3>Calibration is the new compliance.</h3>
-        <p>For LLMs to operate in high&#8209;trust environments, calibration, grounding, and hallucination mitigation become operational disciplines, not research curiosities.</p>
+        <h3>Explainability is no longer optional.</h3>
+        <p>In plain business terms. Not logs. Not code. Not &ldquo;the model said so.&rdquo; Accountability must be visible before production, not investigated after it.</p>
       </article>
     </div>
   </div>
 </section>
 
+<!-- NOTES FROM THE FEED -->
+<section class="section" id="notes">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Notes</span>
+      <h2>From the feed.</h2>
+      <p>Recent essays on architecture, agentic AI, and the governance layer beneath modern enterprise systems.</p>
+    </div>
+
+    <div class="notes-grid">
+      <a class="note reveal" href="https://www.linkedin.com/in/opeyemiawotunde/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="note-meta">
+          <span class="note-tag">#BuildingforanAgenticFuture</span>
+          <span class="note-date">3 weeks ago</span>
+        </div>
+        <h3>Governance is the new architecture.</h3>
+        <p>&ldquo;When an agent acts, we can&rsquo;t fall back on &lsquo;the system did it.&rsquo; We have to think about delegated authority, scoped permissions, and full traceability in a way we didn&rsquo;t before. At this point, companies don&rsquo;t just need AI; they need governed AI.&rdquo;</p>
+        <span class="note-cta">Read on LinkedIn <span class="arr">&rsaquo;</span></span>
+      </a>
+
+      <a class="note reveal d1" href="https://www.linkedin.com/in/opeyemiawotunde/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="note-meta">
+          <span class="note-tag">#LifeLately</span>
+          <span class="note-date">2 months ago</span>
+        </div>
+        <h3>AI delivers value embedded, not adjacent.</h3>
+        <p>&ldquo;Over the past 100 days I&rsquo;ve been exploring how AI can transform enterprise platforms from reactive systems into intelligent, self&#8209;optimizing environments. Autonomous service operations, intelligent knowledge generation, context&#8209;aware assistants, and AI&#8209;driven workflow orchestration.&rdquo;</p>
+        <span class="note-cta">Read on LinkedIn <span class="arr">&rsaquo;</span></span>
+      </a>
+
+      <a class="note reveal d2" href="https://www.linkedin.com/in/opeyemiawotunde/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="note-meta">
+          <span class="note-tag">#SomeoneAskedMe</span>
+          <span class="note-date">7 months ago</span>
+        </div>
+        <h3>Why ServiceNow Agent Intelligence matters.</h3>
+        <p>&ldquo;Imagine an employee&rsquo;s laptop crashes just before an important client call. With AI in action, the issue is analyzed, categorized as &lsquo;high priority hardware failure,&rsquo; and assigned to the most suitable technician based on historical resolution data. No human triage needed. Less downtime, greater satisfaction, an organization one step ahead.&rdquo;</p>
+        <span class="note-cta">Read on LinkedIn <span class="arr">&rsaquo;</span></span>
+      </a>
+
+      <a class="note reveal d3" href="https://www.linkedin.com/in/opeyemiawotunde/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="note-meta">
+          <span class="note-tag">#AgenticAI</span>
+          <span class="note-date">9 months ago</span>
+        </div>
+        <h3>From assistant to agent.</h3>
+        <p>&ldquo;For years we thought of AI as a tool. Then an assistant. Now it&rsquo;s evolving into an agent. Agents don&rsquo;t just respond to requests; they make decisions and perform complex tasks. I&rsquo;ve been designing AI co&#8209;workers that understand context and know what to do.&rdquo;</p>
+        <span class="note-cta">Read on LinkedIn <span class="arr">&rsaquo;</span></span>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/opeyemiawotunde/recent-activity/all/" target="_blank" rel="noopener">See all recent posts on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
 <!-- WRITING -->
-<section class="section" id="writing">
+<section class="section alt" id="writing">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Writing &amp; press</span>
@@ -1078,17 +1348,83 @@ section{position:relative}
         <span class="arr">&rsaquo;</span>
       </a>
 
-      <a class="writing-item reveal d3" href="https://scholar.google.com/citations?user=bp8tJvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-        <div class="meta-col">
-          <span class="outlet">Google Scholar</span>
-          <span class="date">Ongoing</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Research</span>
+      <h2>Peer&#8209;reviewed publications.</h2>
+      <p>Selected work across machine learning, model calibration, and applied AI. Tracked on <a href="https://scholar.google.com/citations?user=bp8tJvQAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="color:var(--blue)">Google Scholar</a>.</p>
+    </div>
+
+    <div class="research-stats reveal">
+      <div class="rs-item">
+        <div class="rs-num">354+</div>
+        <div class="rs-lbl">Citations</div>
+      </div>
+      <div class="rs-item">
+        <div class="rs-num">4</div>
+        <div class="rs-lbl">Publications</div>
+      </div>
+      <div class="rs-item">
+        <div class="rs-num">2024<span class="rs-sub">&ndash;25</span></div>
+        <div class="rs-lbl">Most recent</div>
+      </div>
+      <div class="rs-item">
+        <div class="rs-num">3</div>
+        <div class="rs-lbl">h&#8209;index estimate</div>
+      </div>
+    </div>
+
+    <div class="papers-list">
+      <article class="paper reveal">
+        <div class="paper-meta">
+          <span class="paper-year">2024</span>
+          <span class="paper-cites"><strong>260</strong> citations</span>
         </div>
-        <div class="body-col">
-          <h3>Peer&#8209;reviewed research across applied AI</h3>
-          <p class="excerpt">Selected publications across machine learning and applied AI. Tracked on Google Scholar.</p>
+        <h3 class="paper-title">Hyperparameter tuning in machine learning: a comprehensive review</h3>
+        <p class="paper-authors">JA Ilemobayo, O Durodola, O Alade, <span class="me">OJ Awotunde</span>, AT Olanrewaju, et al.</p>
+        <p class="paper-venue"><em>Journal of Engineering Research and Reports</em> &middot; 26(6), 388&ndash;395</p>
+      </article>
+
+      <article class="paper reveal d1">
+        <div class="paper-meta">
+          <span class="paper-year">2024</span>
+          <span class="paper-cites"><strong>87</strong> citations</span>
         </div>
-        <span class="arr">&rsaquo;</span>
-      </a>
+        <h3 class="paper-title">The evolution of green fintech: leveraging AI and IoT for sustainable financial services and smart contract implementation</h3>
+        <p class="paper-authors">O Elias, <span class="me">OJ Awotunde</span>, OI Oladepo, PF Azuikpe, OA Samson, OR Oladele, et al.</p>
+        <p class="paper-venue"><em>World Journal of Advanced Research and Reviews</em> &middot; 23(1), 2710&ndash;2723</p>
+      </article>
+
+      <article class="paper reveal d2 featured">
+        <div class="paper-meta">
+          <span class="paper-year">2025</span>
+          <span class="paper-cites"><strong>5</strong> citations</span>
+          <span class="paper-tag">Solo author</span>
+        </div>
+        <h3 class="paper-title">Continuous model calibration: leveraging feedback&#8209;driven fine&#8209;tuning for self&#8209;correcting large language models</h3>
+        <p class="paper-authors"><span class="me">AO Joseph</span></p>
+        <p class="paper-venue"><em>International Journal of Research Publication and Reviews</em> &middot; 6(3), 4145&ndash;4158</p>
+      </article>
+
+      <article class="paper reveal d3">
+        <div class="paper-meta">
+          <span class="paper-year">2024</span>
+          <span class="paper-cites"><strong>2</strong> citations</span>
+        </div>
+        <h3 class="paper-title">Non&#8209;linear regression curve fitting of time&#8209;dependent growth performance of Cobb500 broiler</h3>
+        <p class="paper-authors">O Falana, OI Durodola, JA Ilemobayo, OE Adu, AO Ajayi, AM Iledare, et al.</p>
+        <p class="paper-venue"><em>International Journal of Recent Engineering Science (IJRES)</em> &middot; vol. 11</p>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a class="btn btn-outline" href="https://scholar.google.com/citations?user=bp8tJvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">View full Google Scholar profile</a>
     </div>
   </div>
 </section>
@@ -1222,6 +1558,8 @@ section{position:relative}
       <span class="chip">Qualys</span>
       <span class="chip">Industrial &amp; Systems Engineering</span>
       <span class="chip">Continuous Improvement</span>
+      <span class="chip chip-cert">ServiceNow: Agentic AI Executive</span>
+      <span class="chip chip-cert">ServiceNow: Predictive Intelligence</span>
     </div>
   </div>
 </section>
@@ -1235,15 +1573,29 @@ section{position:relative}
       <p>Conferences, academic forums, and student leadership. Bringing rigorous AI thinking to the rooms that shape the next generation.</p>
     </div>
 
-    <div class="speak-grid">
+    <div class="speak-grid four">
       <article class="speak-card reveal">
-        <span class="tag">Keynote</span>
-        <h3>5th Industrial &amp; Production Engineering Conference</h3>
-        <p>On continuous improvement as foundational to modern AI infrastructure. Recalibrating large language models in real time, refining biometric thresholds, and applying systems thinking to digital policy.</p>
-        <span class="meta">University of Ibadan, Nigeria &middot; June 2023</span>
+        <span class="tag">Keynote &middot; Judge</span>
+        <h3>7th IE Conference, University of Ibadan</h3>
+        <p>Keynote on &ldquo;Embracing continuous improvement and leveraging technology for long&#8209;term success.&rdquo; Also served as paper&#8209;presentation judge. Theme: <em>Bridging the Gap; Connecting the Future.</em></p>
+        <span class="meta">University of Ibadan, Nigeria &middot; 2025</span>
       </article>
 
       <article class="speak-card reveal d1">
+        <span class="tag">Workshop</span>
+        <h3>NSBE Region 3 Conference</h3>
+        <p>Hands&#8209;on workshop on <em>How to Effectively Communicate with AI Systems.</em> Prompt design for technical analysis, risk assessment, and ethical AI integration. Theme: Inspire, Excel, Impact.</p>
+        <span class="meta">National Society of Black Engineers &middot; 2024</span>
+      </article>
+
+      <article class="speak-card reveal d2">
+        <span class="tag">TV Interview</span>
+        <h3>BusinessDay TV</h3>
+        <p>Featured conversation on the pace of AI&#8209;driven digital transformation and how organizations should prepare. The interview shaped follow&#8209;up commentary in The Guardian and Nigerian Tribune.</p>
+        <span class="meta">BusinessDay Television</span>
+      </article>
+
+      <article class="speak-card reveal d3">
         <span class="tag">Leadership</span>
         <h3>President, African Students Association</h3>
         <p>Led the African Students Association at Auburn University. Built cultural connection, unity, and community across the broader student body and surrounding institutions.</p>
